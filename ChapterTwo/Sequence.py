@@ -22,5 +22,19 @@ print greeting[-1]
 print 'Hello'[0]
 
 # 如果一个函数返回一个序列，那么可以直接对返回结果进行索引操作。
-fourth = raw_input('Year: ')[3]
-print fourth
+# fourth = raw_input('Year: ')[3]
+# print fourth
+
+months=['January','February','March','April','May','June','July','August','September','October','November','December']
+endings=['st','nd','rd']+17*['th']+['st','nd','rd']+7*['th']+['st']
+year=raw_input('Year: ')
+month=raw_input('Month(1-12): ')
+day=raw_input('Day(1-31): ')
+
+month_number=int(month)
+day_number=int(day)
+
+month_name=months[month_number-1]
+ordinal=day+endings[day_number-1]
+
+print month_name+' '+ordinal+'. '+year
