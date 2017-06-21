@@ -202,6 +202,22 @@ b = [4,5,6]
 a.extend(b)
 print a
 
+#这个操作看起来像连接操作（a+b），两者最主要的区别在于：extend方法修改了被扩展的序列。而连接操作会返回一个全新的列表：
+
+a = [1,2,3]
+b = [4,5,6]
+print a+b
+print a
+
+#index方法 从列表中找出某个值第一个匹配项的索引位置
+knights=['We','are','the','knights','who','say','ni']
+print knights.index('who')
+
+#insert方法 将对象插入到列表中
+numbers=[1,2,3,5,6,7]
+numbers.insert(3,'four')
+print numbers
+
 #pop方法 移除列表中的一个元素（默认是最后一个，也可以指定），并且返回该元素的值,pop是唯一一个技能修改列表又返回元素值的列表方法
 print '======= pop方法 ======='
 x=[1,2,3]
