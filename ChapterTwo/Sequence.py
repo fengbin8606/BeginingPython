@@ -111,8 +111,8 @@ permissions = 'rw'
 print 'w' in permissions
 print  'x' in permissions
 
-# users = ['mlh','foo','bar']
-# print raw_input('Enter your name: ') in users
+#users = ['mlh','foo','bar']
+#print raw_input('Enter your name: ') in users
 
 # 检查用户名和PIN码
 
@@ -202,8 +202,69 @@ b = [4,5,6]
 a.extend(b)
 print a
 
+#pop方法 移除列表中的一个元素（默认是最后一个，也可以指定），并且返回该元素的值,pop是唯一一个技能修改列表又返回元素值的列表方法
+print '======= pop方法 ======='
+x=[1,2,3]
+print x.pop()
+print x
+print x.pop(0)
+print x
+
+#python没有入栈方法，但可以使用append方法来代替。pop方法和append方法的操作结果恰好相反。
+print '======= python出栈和入栈 ======'
+x=[1,2,3]
+x.append(x.pop())
+print x
+
+#remove方法 用于移除列表中的某个值的第一个匹配项，没有返回值的原位置改变方法。修改了列表却没有返回值，与pop方法相反
+print '======= remove方法 ======'
+x=['to','be','or','not','to','be']
+x.remove('be')
+print x
+
+#reverse方法 将列表中的元素反向存放，改变了列表但没有返回值
+print '======= reverse方法 ======'
+x=[4,6,2,1,7,9]
+x.reverse()
+print x
+
+#sort方法 用于在原位置对列表进行排序 不返回新的列表
+print '======= sort方法 ======'
+x=[4,6,2,1,7,9]
+x.sort()
+print x
+#当用户需要一个排好序的列表副本，同时又保留原有列表不变的时，不能使用如下做法
+x=[4,6,2,1,7,9]
+y=x.sort()      #Don't do this!
+print y
+#实现上述需求的正确方法是，首先把x的副本赋值给y，然后对y进行排序
+x=[4,6,2,1,7,9]
+y=x[:]        #这里如果使用y=x是没有用的，
+y.sort()
+print x
+print y
+#另一种获取排序的列表副本的方法是使用sorted函数
+x=[4,6,2,1,7,9]
+y=sorted(x)
+print x
+print y
+#sorted函数可以用于任何序列，并且总是返回一个列表
+print sorted('Python')
+
+#高级排序 使用关键字参数 cmp key reverse
+print '====== 高级排序 ======'
+numbers=[5,2,9,7]
+numbers.sort(cmp)  #内建函数cmp提供了比较函数的默认实现方式
+print numbers
 
 
+#关键字参数key 为每个元素创建一个键，然后所有元素根据键来排序
+x=['adb','adbde','abcdefg','abcd','abcdef']
+x.sort(key=len)   #根据元素的长度进行排序，使用len作为键函数
+print x
 
-
+#关键字参数reverse 的值是布尔值 用来指明列表是否要进行反向排序
+x=[4,6,2,1,7,9]
+x.sort(reverse=True)
+print x
 
