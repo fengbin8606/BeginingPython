@@ -49,3 +49,10 @@ d={}
 d['thing']='gentleman'
 d['action']='show his socks'
 print s.substitute(d)
+
+#如果右操作数是元组的话，则其中的每一个元素都会被单独格式化，每个值都需要一个对应的转换说明符。
+#如果需要转换的元组作为转换表达式的一部分存在，那么必须将它用圆括号括起来。
+print '%s plus %s equals %s' %(1,1,2)
+#print '%s plus %s equals %s' %1,1,2  #Lacks parentheses!
+
+
