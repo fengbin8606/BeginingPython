@@ -55,4 +55,20 @@ print s.substitute(d)
 print '%s plus %s equals %s' %(1,1,2)
 #print '%s plus %s equals %s' %1,1,2  #Lacks parentheses!
 
+print 'Price of eggs: $%d' %42 #带符号的十进制整数
+print 'Hexadecimal price of eggs:%x' %42 #不带符号的十六进制 小写
+from math import pi
+print 'Pi: %f...' %pi   #十进制浮点数
+print 'Pi: %.10f' %pi   #十进制浮点数
+print 'Very inexact estimate of pi: %i' %pi  #带符号的十进制整数
+print 'Using str : %s' %42L  #字符串 使用str转换任意Python对象
+print 'Using repr: %r' %42L  #字符串 使用repr转换任意Python对象
 
+#字段宽度和精度
+#这两个参数都是整数，通过点号隔开
+print '%10f' %pi #字段宽10
+print '%10.2f' %pi #字段宽10 精度2
+print '%.2f' %pi #精度2 如果只给出精度，必须包含点号
+print '%.5s' %'Guido van Rossum'
+print '%.*s' %(5,'Guido van Rossum') #可使用*号最为字段宽度或精度（或者两者都使用*），此时数值从元组参数中读出
+print '%*.*s' %(10,5,'Guido van Rossum')
