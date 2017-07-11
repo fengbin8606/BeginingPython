@@ -135,3 +135,5 @@ print len(table) #这个表有多达256个项目，事实上是字符串
 #创建这个表后，可以将它用作translate方法的参数，进行字符串转换
 print 'this is an incredible test'.translate(table)
 
+#translate的第二个参数是可选的，该参数用来删除指定的字符。
+print 'this is an incredible test'.translate(table,' ')
