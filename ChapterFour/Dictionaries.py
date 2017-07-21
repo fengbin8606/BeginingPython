@@ -169,10 +169,86 @@ print dict.fromkeys(['name', 'age'], '(unknown)')
 # The get method is a forgiving way of accessing dictionary items. Ordinarily, when you try to
 # access an item that is not present in the dictionary, things go very wrong:
 d = {}
-print d['name']
+# print d['name']
 print d.get('name')
 # None
 # As you can see, when you use get to access a nonexistent key, there is no exception.
 # Instead, you get the value None. You may supply your own “default” value, which is then used
 # instead of None:
 print d.get('name', 'N/A')
+
+# items and iteritems
+# The items method returns all the items of the dictionary as a list of items in which each item is
+# of the form (key, value). The items are not returned in any particular order:
+d = {'title': 'Python Web Site', 'url': 'http://www.python.org', 'spam': 0}
+d.items()
+# [('url', 'http://www.python.org'), ('spam', 0), ('title', 'Python Web Site')]
+# The iteritems method works in much the same way, but returns an iterator instead of
+# a list:
+it = d.iteritems()
+print it
+# <dictionary-iterator object at 169050>
+print list(it) # Convert the iterator to a list
+# [('url', 'http://www.python.org'), ('spam', 0), ('title', 'Python Web Site')]
+
+# pop
+# The pop method can be used to get the value corresponding to a given key, and then remove the
+# key-value pair from the dictionary:
+d = {'x': 1, 'y': 2}
+print d.pop('x')
+# 1
+print d
+# {'y': 2}
+
+# popitem
+# The popitem method is similar to list.pop, which pops off the last element of a list. Unlike
+# list.pop, however, popitem pops off an arbitrary item because dictionaries don’t have a “last
+# element” or any order whatsoever. This may be very useful if you want to remove and process
+# the items one by one in an efficient way (without retrieving a list of the keys first):
+d={'url': 'http://www.python.org', 'spam': 0, 'title': 'Python Web Site'}
+print d.popitem()
+# ('url', 'http://www.python.org')
+print d
+# {'spam': 0, 'title': 'Python Web Site'}
+
+# setdefault
+# The setdefault method is somewhat similar to get, in that it retrieves a value associated with
+# a given key. In addition to the get functionality, setdefault sets the value corresponding to the
+# given key if it is not already in the dictionary:
+d = {}
+print d.setdefault('name', 'N/A')
+# 'N/A'
+print d
+# {'name': 'N/A'}
+d['name'] = 'Gumby'
+print d.setdefault('name', 'N/A')
+# 'Gumby'
+print d
+# {'name': 'Gumby'}
+
+# update
+# The update method updates one dictionary with the items of another:
+d = {
+'title': 'Python Web Site',
+'url': 'http://www.python.org',
+'changed': 'Mar 14 22:09:15 MET 2008'
+}
+x = {'title': 'Python Language Website'}
+d.update(x)
+print d
+# {'url': 'http://www.python.org', 'changed':
+# 'Mar 14 22:09:15 MET 2008', 'title': 'Python Language Website'}
+
+# values and itervalues
+# The values method returns a list of the values in the dictionary (and itervalues returns an iterator of the values). Unlike keys, the list returned by values may contain duplicates:
+d = {}
+d[1] = 1
+d[2] = 2
+d[3] = 3
+d[4] = 1
+print d.values()
+# [1, 2, 3, 1]
+print d.itervalues()
+print list(d.itervalues())
+
+
